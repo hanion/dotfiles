@@ -45,14 +45,20 @@ cmd_copy() {
 }
 
 cmd_link() {
-	local source=$1
-	local target=$2
+	local name=$1
+	local path=$2
+	local symlink_name=$path
+	local symlink_target=$DOTFILES_DIR/$name
 
-	print_job "CMD: ln -sf $source $target"
-	if [ -e "$target" ]; then
-		print_error "	$target already exists. skipping symlink creation."
-	else
-		ln -sf "$source" "$target"
+	# check if the target path exists and is not a symlink
+	if [ -e "$symlink_name" ] && [ ! -L "$symlink_name" ]; then
+		print_job "backing up existing file/directory: $symlink_name"
+		cmd_move "$symlink_name" "$BACKUP_DIR/$name"
+	fi
+
+	if [ ! -L "$symlink_name" ]; then
+		print_job "creating symlink: ln -sf $symlink_target $symlink_name"
+		ln -sf "$symlink_target" "$symlink_name"
 	fi
 }
 
@@ -79,7 +85,7 @@ link_dotfiles() {
 	for file in "${DOTFILES[@]}"; do
 		name=$(echo $file | cut -d ' ' -f 1)
 		path=$(echo $file | cut -d ' ' -f 2)
-		cmd_link $DOTFILES_DIR/$name $path
+		cmd_link $name $path
 	done
 	print_success "dotfiles fetched and symlinks created successfully."
 }
