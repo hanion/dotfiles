@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "run_update_script",
+        "run_build_script"
+    ]
+}
