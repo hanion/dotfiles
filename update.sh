@@ -6,8 +6,9 @@ BACKUP_DIR="$DOTFILES_DIR/backup"
 DOTFILES=(
 	".bashrc $HOME/.bashrc"
 	".tmux.conf $HOME/.tmux.conf"
-	"nvim $HOME/.config/nvim"
 	".gitconfig $HOME/.gitconfig"
+	"nvim $HOME/.config/nvim"
+	"ranger $HOME/.config/ranger"
 )
 
 
