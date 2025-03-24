@@ -34,6 +34,10 @@ cmd_copy() {
 	local source=$1
 	local target=$2
 
+	if [ -L "$source" ]; then
+		return
+	fi
+
 	if [ -d "$source" ]; then
 		mkdir -p "$target/"
 		print_job "CMD: cp -r $source/. $target/"
@@ -66,9 +70,12 @@ cmd_move() {
 	local source=$1
 	local target=$2
 
+	if [ -L "$source" ]; then
+		return
+	fi
 
 	if [ -d "$source" ]; then
-		mkdir -p "$target"  # Create the target directory if it doesn't exist
+		mkdir -p "$target"
 		print_job "CMD: mv $source $target/"
 		mv "$source"/. "$target/"
 	else
