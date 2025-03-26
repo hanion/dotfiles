@@ -31,3 +31,14 @@ fi
 eval "$(fzf --bash)"
 FZF_ALT_C_COMMAND=""
 
+eval "$(navi widget bash)"
+
+ranger_cd() {
+	local tempfile="$(mktemp)"
+	ranger --choosedir="$tempfile" "$@"
+	if [ -f "$tempfile" ]; then
+		cd "$(cat "$tempfile")" || return
+	fi
+	rm -f "$tempfile"
+}
+alias r='ranger_cd'
