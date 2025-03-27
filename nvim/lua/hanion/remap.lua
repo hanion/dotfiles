@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<leader>l", vim.cmd.Ex)
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("n", "<leader>o", "<cmd>ClangdSwitchSourceHeader<CR>")
@@ -104,4 +102,4 @@ vim.keymap.set("n", "<leader>gt", ":Telescope git_status<CR>", { desc = "git tel
 vim.keymap.set("n", "<leader>gd", vim.cmd.Gvdiffsplit, { desc = "git diff v split" })
 vim.keymap.set("n", "<leader>gl", require('gitsigns').blame_line, { desc = "git line blame" })
 vim.keymap.set("n", "<leader>gb", require('gitsigns').blame, { desc = "git blame" })
-vim.keymap.set("n", "<leader>l", vim.cmd.Ex, { desc = "la" })
+vim.keymap.set("n", "<leader>n", vim.cmd.Ex, { desc = "netrw" })
