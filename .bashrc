@@ -44,27 +44,4 @@ ranger_cd() {
 alias r='ranger_cd'
 
 
-alias note='ranger ~/note'
-
-# note grep name
-noteg() {
-	local file
-	file=$(grep -rIl --exclude={import.sh,center.sh} --exclude-dir={.obsidian,journal} . ~/note | 
-		fzf --preview "bat --style=numbers --color=always --line-range=:100 {}") || return
-
-	[[ -n "$file" ]] && nvim "$file"
-}
-
-# note fzf content
-notef() {
-	local selection file line
-	selection=$(grep -rnI --exclude={import.sh,center.sh} --exclude-dir={.obsidian,journal} . ~/note | 
-		fzf --delimiter : --nth=2.. --preview 'bat --style=numbers --color=always --highlight-line {2} {1}') || return
-
-	file=$(cut -d: -f1 <<< "$selection")
-	line=$(cut -d: -f2 <<< "$selection")
-
-	[[ -n "$file" ]] && [[ -n "$line" ]] && nvim +"$line" "$file"
-}
-
 
