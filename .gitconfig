@@ -6,3 +6,5 @@
 [user]
 	name = hanion
 	email = 55713249+hanion@users.noreply.github.com
+[credential]
+	helper = store

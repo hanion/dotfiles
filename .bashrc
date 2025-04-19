@@ -12,8 +12,8 @@ alias grep='grep --color=auto'
 PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;36m\]\h\[\033[00m\] \[\033[01;33m\]\W\[\033[00m\]$\[\033[00m\] '
 
 
-alias la='lsd -AlF1 --color=auto'
-alias lt='lsd -AlF1 --color=auto --tree --depth=2'
+alias la='lsd -Al1 --color=auto'
+alias lt='lsd -Al1 --color=auto --tree --depth=2'
 alias ll='ranger'
 
 alias vim=/usr/bin/nvim
