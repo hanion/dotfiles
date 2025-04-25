@@ -8,7 +8,7 @@ DOTFILES=(
 	".tmux.conf $HOME/.tmux.conf"
 	".gitconfig $HOME/.gitconfig"
 	"nvim $HOME/.config/nvim"
-	"ranger $HOME/.config/ranger"
+	"lf $HOME/.config/lf"
 )
 
 

@@ -14,15 +14,10 @@ PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;36m\]\h\[\033[00m\] \[\033[01;33m\]
 
 alias la='lsd -Al1 --color=auto'
 alias lt='lsd -Al1 --color=auto --tree --depth=2'
-alias ll='ranger'
-
-alias vim=/usr/bin/nvim
-alias rm='trash-put'
 
 alias please='sudo'
 
 export EDITOR='nvim'
-
 
 if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
@@ -33,15 +28,13 @@ FZF_ALT_C_COMMAND=""
 
 eval "$(navi widget bash)"
 
-ranger_cd() {
+lfcd() {
 	local tempfile="$(mktemp)"
-	ranger --choosedir="$tempfile" "$@"
-	if [ -f "$tempfile" ]; then
+	lf -last-dir-path="$tempfile" "$@"
+	if [ -f "$tempfile" ] && [ -d "$(cat "$tempfile")" ]; then
 		cd "$(cat "$tempfile")" || return
 	fi
 	rm -f "$tempfile"
 }
-alias r='ranger_cd'
-
 
 
