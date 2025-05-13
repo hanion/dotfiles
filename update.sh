@@ -5,10 +5,12 @@ BACKUP_DIR="$DOTFILES_DIR/backup"
 
 DOTFILES=(
 	".bashrc $HOME/.bashrc"
+	".vimrc $HOME/.vimrc"
 	".tmux.conf $HOME/.tmux.conf"
 	".gitconfig $HOME/.gitconfig"
 	"nvim $HOME/.config/nvim"
 	"lf $HOME/.config/lf"
+	"qutebrowser $HOME/.config/qutebrowser"
 )
 
 

@@ -1,5 +1,4 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("n", "<leader>o", "<cmd>ClangdSwitchSourceHeader<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
